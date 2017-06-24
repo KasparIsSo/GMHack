@@ -1,6 +1,9 @@
 // Your code goes here
 
 var vinElem = document.getElementById('vin');
+var tooAngry = document.getElementById('result');
+var avg = 0;
+var count = 0;
 /*gm.info.getVehicleConfiguration(function(data) {
   vinElem.innerHTML = gm.info.getVIN();
   //console.log("hi");
@@ -56,11 +59,24 @@ detector.addEventListener("onImageResultsSuccess", function (faces, image, times
   console.log(faces.length);
 
   if (faces.length > 0) {
+    avg += faces[0].emotions.anger;
+    count ++;
     console.log(faces[0].emotions);
-
-        console.log("Anger: " + faces[0].emotions.anger);
-
-        vinElem.innerHTML = ""+faces[0].emotions.anger;
+    console.log("Anger: " + faces[0].emotions.anger);
+    vinElem.innerHTML = ""+faces[0].emotions.anger;
+    if (count ==25){
+      var realavg = avg/count;
+    if (realavg > 40){
+      tooAngry.innerHTML =  "Warning: Your emotional level may be affecting your driving";
+    }
+    else if {realavg > 40 && }
+    else{
+      tooAngry.innerHTML = "";
+    }
+    count = 0;
+    avg = 0;
+    realavg = 0;
+  }
           //console.log("hi");
 
       //alert("angry");
