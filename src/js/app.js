@@ -1,14 +1,18 @@
 // Your code goes here
 
-var vinElem = document.getElementById('vin');
+//var vinElem = document.getElementById('vin');
 var tooAngry = document.getElementById('result');
-var avg = 0;
-var count = 0;
+var tooDistracted = document.getElementById('result2');
+var unable = document.getElementById('unable');
+var avgang = 0;
+var avgatt = 0;
+var countang = 0;
+var countatt = 0;
+var onTheRoad = 0;
 /*gm.info.getVehicleConfiguration(function(data) {
   vinElem.innerHTML = gm.info.getVIN();
   //console.log("hi");
 });*/
-
 
 console.log("hello");
 
@@ -59,28 +63,54 @@ detector.addEventListener("onImageResultsSuccess", function (faces, image, times
   console.log(faces.length);
 
   if (faces.length > 0) {
-    avg += faces[0].emotions.anger;
-    count ++;
+    unable.innerHTML = "";
+    avgatt += faces[0].expressions.attention;
+    avgang += faces[0].emotions.anger;
+    countatt ++;
+    countang ++;
     console.log(faces[0].emotions);
     console.log("Anger: " + faces[0].emotions.anger);
-    vinElem.innerHTML = ""+faces[0].emotions.anger;
-    if (count ==25){
-      var realavg = avg/count;
-    if (realavg > 40){
+    console.log("Attention: " + faces[0].expressions.attention);
+  //  vinElem.innerHTML = "Angriness: "+faces[0].emotions.anger;
+    if (countang ==15){
+      var realavgang = avgang/countang;
+    if (realavgang > 40){
       tooAngry.innerHTML =  "Warning: Your emotional level may be affecting your driving";
     }
-    else if {realavg > 40 && }
     else{
       tooAngry.innerHTML = "";
     }
-    count = 0;
-    avg = 0;
-    realavg = 0;
+    countang = 0;
+    avgang = 0;
+    realavgang = 0;
   }
+  if (countatt == 10){
+    var realavgatt = avgatt/countatt;
+    if (realavgatt < 70){
+      tooDistracted.innerHTML = "Pay attention to the road!";
+      if(onTheRoad >= 10){
+        var id = gm.voice.startTTS(function(){ }, 'Keep your eyes on the road.');
+        onTheRoad = 0;
+      }
+      onTheRoad++;
+    }
+    else {
+      tooDistracted.innerHTML = "";
+    }
+    countatt = 0;
+    avgatt = 0;
+    realavgatt = 0;
+  }
+
           //console.log("hi");
 
       //alert("angry");
     //vinElem.innerHTML = "";
+  }
+  else{
+    tooAngry.innerHTML = "";
+    tooDistracted.innerHTML = "";
+    unable.innerHTML = " UNABLE TO DETECT FACE";
   }
 });
 
