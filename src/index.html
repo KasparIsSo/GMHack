@@ -10,10 +10,12 @@
 
     <!-- Your custom files -->
     <link rel="stylesheet" href="css/app.css" type="text/css">
+    <link rel="stylesheet" href="css/statSect.css" type="text/css">
 
     <script src="GMLIB/system.js"></script>
     <script src="GMLIB/info.js"></script>
     <script src="GMLIB/voice.js"></script>
+    <script src="GMLIB/ui.js"></script>
     <script src="https://download.affectiva.com/js/3.2/affdex.js"/>
     <!--<script language="JavaScript" type="text/javascript" src="/js/jquery-3.2.1-min.js"></script>-->
     <!-- Uncomment libraries as you need them: -->
@@ -23,7 +25,6 @@
     <!-- <script src="GMLIB/monitor.js"></script> -->
     <!-- <script src="GMLIB/nav.js"></script> -->
     <!-- <script src="GMLIB/phone.js"></script> -->
-    <!-- <script src="GMLIB/ui.js"></script> -->
     <!-- <script src="GMLIB/util.js"></script> -->
 
   </head>
@@ -33,23 +34,24 @@
       <div id="main">
 
         <!-- Remove all code inside #main and add your own! -->
-        <h1>GMHack</h1>
-        <p>
-           <span id="result"></span>
-         </p>
-         <p>
-           <span id="unable"></span>
-         </p>
-         <p>
-           <span id="result2"></span>
-        </p>
+        <!-- <h1>GMHack</h1 -->
+
   <!--      <p>
             <span id="vin"></span>
         </p> -->
-
-        <div class="col-md-8" id="affdex_elements" style="width:680px;height:480px;"></div>
+        <div class = "stat" id = "stat"></div>
+        <div class="col-md-8" id="affdex_elements">
+          <p>
+             <span id="result"></span>
+           </p>
+           <p>
+             <span id="unable"></span>
+           </p>
+           <p>
+             <span id="result2"></span>
+          </p>
+        </div>
         <!-- style="width:680px;height:480px;" -->
-
       </div>
     </div>
 

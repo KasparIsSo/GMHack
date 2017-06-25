@@ -14,6 +14,39 @@ var onTheRoad = 0;
   //console.log("hi");
 });*/
 
+gm.info.watchVehicleData(processData, ['outside_air_temp']);
+
+function processData(data) {
+  console.log('got vehicle data: ', data.outside_air_temp);
+  if (data.outside_air_temp < 0){
+    gm.ui.showAlert({
+      alertTitle: "Weather conditions hazardous",
+      alertDetail: "Analysis sensitivity increased",
+      primaryButtonText: 'Ok',
+  		primaryAction: function() {},
+  		secondaryButtonText: '',
+  		secondaryAction: function() {},
+    })
+  }
+  else{
+  }
+}
+
+
+
+var triggerResponse = function() {
+
+	gm.ui.showAlert({
+		alertTitle: 'Yo',
+		alertDetail: 'Please chill and Slow Down!',
+		primaryButtonText: 'Ok',
+		primaryAction: function() {},
+		secondaryButtonText: 'Help',
+		secondaryAction: function() {}
+	})
+
+}
+
 var carSpeeds = [];
 var avgRate;
 
@@ -141,10 +174,12 @@ detector.addEventListener("onImageResultsSuccess", function (faces, image, times
       var realavgang = avgang/countang;
     if (realavgang > 40){
       tooAngry.innerHTML =  "Warning: Your emotional level may be affecting your driving";
-      if(avgRate > 5){
+
+      if(avgRate > 3){
         console.log("ANGRY and SPEEDING");
         tooAngry.innerHTML = "Please slow down";
         var id = gm.voice.startTTS(function(){ }, 'Please slow down.');
+        triggerResponse();
       }
     }
     else{

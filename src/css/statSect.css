@@ -1,0 +1,37 @@
+.stat {
+  position: relative;
+  z-index: 5;
+  height: 390px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../images/gpsMap.png"); }
+  .stat__container {
+    width: 200px;
+    height: 200px;
+    float: left; }
+    .stat__container--category {
+      font-family: sans-serif;
+      font-size: 1em; }
+    .stat__container--text {
+      font-family: sans-serif;
+      font-size: 2em; }
+  .stat__response {
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    height: 50px;
+    background: #f20d0d; }
+    .stat__response--header {
+      color: white;
+      font-family: sans-serif;
+      font-size: 2em; }
+
+#brake_position {
+  color: #f20d0d;
+  text-transform: uppercase; }
+  #brake_position.active {
+    color: #59f20d; }
+
+/*# sourceMappingURL=statSect.css.map */

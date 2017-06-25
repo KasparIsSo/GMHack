@@ -16,6 +16,12 @@
   width: 100%;
 }
 
+#affdex_elements {
+  position: relative;
+  width: 100%;
+  height: 390px;
+}
+
 @media (min-width: 801px) {
   #close {
     top: 104px;
@@ -25,7 +31,10 @@
 video {
 margin: 0 auto;
 width: 300px;
+/*margin: 100px 250px;*/
 text-align: center;
-position: relative;
-
+/*position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%; -50%);*/
 }
